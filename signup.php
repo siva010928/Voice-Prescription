@@ -2,9 +2,9 @@
 session_start();
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception;
-require '/home/sivaprakash/voice_prescription/Exception.php';
-require '/home/sivaprakash/voice_prescription/PHPMailer.php';
-require '/home/sivaprakash/voice_prescription/SMTP.php';
+// require '/home/sivaprakash/voice_prescription/Exception.php';
+// require '/home/sivaprakash/voice_prescription/PHPMailer.php';
+// require '/home/sivaprakash/voice_prescription/SMTP.php';
 require_once 'pdo.php';
 if (isset($_POST['submit'])) {
 	$stmt=$pdo->prepare('SELECT * FROM admins WHERE user_name=:user_name');
