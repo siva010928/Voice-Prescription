@@ -23,6 +23,6 @@ SMS/WhatsApp
 ![1](https://github.com/siva010928/Voice-Prescription/blob/master/img/1.png)
 ![2](https://github.com/siva010928/Voice-Prescription/blob/master/img/signup.png)
 ![3](https://github.com/siva010928/Voice-Prescription/blob/master/img/login.png)
-![4](https://github.com/siva010928/Voice-Prescription/blob/master/img/Sprachscript _ Dashboard_page-0001.jpg)
+![4](https://github.com/siva010928/Voice-Prescription/blob/master/img/Sprachscript%20_%20Dashboard_page-0001.jpg)
 ![5](https://github.com/siva010928/Voice-Prescription/blob/master/img/Shiva_47_page-0001.jpg)
 
