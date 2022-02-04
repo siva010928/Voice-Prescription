@@ -7,65 +7,68 @@ use PHPMailer\PHPMailer\Exception;
 // require '/home/sivaprakash/voice_prescription/SMTP.php';
 require_once 'pdo.php';
 if (isset($_POST['submit'])) {
-	$stmt=$pdo->prepare('SELECT * FROM admins WHERE user_name=:user_name');
-	$stmt->execute(array(
-		':user_name'=>$_POST['user_name']
-	));
-	$row=$stmt->fetch(PDO::FETCH_ASSOC);
-	$_SESSION['v_code']=uniqid('',true);
-	$_SESSION['first_name']=$_POST['first_name'];
-	$_SESSION['last_name']=$_POST['last_name'];
-	$_SESSION['email']=$_POST['email'];
-	$_SESSION['user_name']=$_POST['user_name'];
-	$_SESSION['password']=$_POST['password'];
-	$_SESSION['doctor_id']=$_POST['doctor_id'];
-	$_SESSION['phone_no']=$_POST['phone_no'];
-	$_SESSION['hospital_name']=$_POST['hospital_name'];
-	$_SESSION['locality']=$_POST['locality'];
-	$_SESSION['gender']=$_POST['gender'];
-	if ($row===false) {
-		$password_check=$_POST['password'];
-		$uppercase = preg_match('@[A-Z]@', $password_check);
-		$lowercase = preg_match('@[a-z]@', $password_check);
-		$number    = preg_match('@[0-9]@', $password_check);
-		$specialChars = preg_match('@[^\w]@', $password_check);
-		$specialChars = preg_match('@[^\w]@', $password_check);
-		if(!$uppercase || !$lowercase || !$number ||  !$specialChars || strlen($password_check) < 8) {
-   	 		$_SESSION['signup_err']='Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
-			header('Location:signup.php');
-			return;
-		}
-		$mail = new PHPMailer(true);
-		try { 
-			$mail->SMTPDebug = 2;									 
-			$mail->isSMTP();											 
-			$mail->Host	 = 'smtp.gmail.com';					 
-			$mail->SMTPAuth = true;							 
-			$mail->Username = 'siva010928@gmail.com';				 
-			$mail->Password = 'taqwunzgjzzdrnpl';						 
-			$mail->SMTPSecure = 'tls';							 
-			$mail->Port	 = 587; 
-			$mail->setFrom('siva010928@gmail.com', 'Siva');		 
-			$mail->addAddress($_POST['email'], $_POST['first_name']); 
-			$mail->isHTML(true);								 
-			$mail->Subject = 'Voice Prescription';			//Sets the Subject of the message
-			$mail->Body = "<p>Your verification code is:"."\n<h1>".$_SESSION['v_code']."</h1></p>";
-			$mail->AltBody = 'Body in plain text for non-HTML mail clients'; 
-			$mail->send(); 
-			echo "Mail has been sent successfully!"; 
+	echo "Mail has been sent successfully!"; 
 			header('Location:confirmation.php');
 			$_SESSION['signup_succ']='Verification Email has been sent to your mail';
-			return;
-		} catch (Exception $e) { 
-			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; 
-		} 
+	// $stmt=$pdo->prepare('SELECT * FROM admins WHERE user_name=:user_name');
+	// $stmt->execute(array(
+	// 	':user_name'=>$_POST['user_name']
+	// ));
+	// $row=$stmt->fetch(PDO::FETCH_ASSOC);
+	// $_SESSION['v_code']=uniqid('',true);
+	// $_SESSION['first_name']=$_POST['first_name'];
+	// $_SESSION['last_name']=$_POST['last_name'];
+	// $_SESSION['email']=$_POST['email'];
+	// $_SESSION['user_name']=$_POST['user_name'];
+	// $_SESSION['password']=$_POST['password'];
+	// $_SESSION['doctor_id']=$_POST['doctor_id'];
+	// $_SESSION['phone_no']=$_POST['phone_no'];
+	// $_SESSION['hospital_name']=$_POST['hospital_name'];
+	// $_SESSION['locality']=$_POST['locality'];
+	// $_SESSION['gender']=$_POST['gender'];
+	// if ($row===false) {
+	// 	$password_check=$_POST['password'];
+	// 	$uppercase = preg_match('@[A-Z]@', $password_check);
+	// 	$lowercase = preg_match('@[a-z]@', $password_check);
+	// 	$number    = preg_match('@[0-9]@', $password_check);
+	// 	$specialChars = preg_match('@[^\w]@', $password_check);
+	// 	$specialChars = preg_match('@[^\w]@', $password_check);
+	// 	if(!$uppercase || !$lowercase || !$number ||  !$specialChars || strlen($password_check) < 8) {
+   	//  		$_SESSION['signup_err']='Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+	// 		header('Location:signup.php');
+	// 		return;
+	// 	}
+	// 	$mail = new PHPMailer(true);
+	// 	try { 
+	// 		$mail->SMTPDebug = 2;									 
+	// 		$mail->isSMTP();											 
+	// 		$mail->Host	 = 'smtp.gmail.com';					 
+	// 		$mail->SMTPAuth = true;							 
+	// 		$mail->Username = 'siva010928@gmail.com';				 
+	// 		$mail->Password = 'taqwunzgjzzdrnpl';						 
+	// 		$mail->SMTPSecure = 'tls';							 
+	// 		$mail->Port	 = 587; 
+	// 		$mail->setFrom('siva010928@gmail.com', 'Siva');		 
+	// 		$mail->addAddress($_POST['email'], $_POST['first_name']); 
+	// 		$mail->isHTML(true);								 
+	// 		$mail->Subject = 'Voice Prescription';			//Sets the Subject of the message
+	// 		$mail->Body = "<p>Your verification code is:"."\n<h1>".$_SESSION['v_code']."</h1></p>";
+	// 		$mail->AltBody = 'Body in plain text for non-HTML mail clients'; 
+	// 		$mail->send(); 
+	// 		echo "Mail has been sent successfully!"; 
+	// 		header('Location:confirmation.php');
+	// 		$_SESSION['signup_succ']='Verification Email has been sent to your mail';
+	// 		return;
+	// 	} catch (Exception $e) { 
+	// 		echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; 
+	// 	} 
 
-	}
-	else{
-		header('Location:signup.php');
-		$_SESSION['signup_err']='account already exists go to login page';
-		return;
-	}
+	// }
+	// else{
+	// 	header('Location:signup.php');
+	// 	$_SESSION['signup_err']='account already exists go to login page';
+	// 	return;
+	// }
 }
 ?>
 <!DOCTYPE html>
