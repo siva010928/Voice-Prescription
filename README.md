@@ -20,9 +20,9 @@ SMS/WhatsApp
 - phpmailer-library(STMP)
 
 ##  Photos
-![1](https://github.com/siva010928/Simple-Population-Graph/blob/main/Screenshot%20from%202022-01-28%2022-29-39.png)
-![2](https://github.com/siva010928/Simple-Population-Graph/blob/main/image.png)
-![1](https://github.com/siva010928/Simple-Population-Graph/blob/main/Screenshot%20from%202022-01-28%2022-29-39.png)
-![2](https://github.com/siva010928/Simple-Population-Graph/blob/main/image.png)
-![1](https://github.com/siva010928/Simple-Population-Graph/blob/main/Screenshot%20from%202022-01-28%2022-29-39.png)
-![2](https://github.com/siva010928/Simple-Population-Graph/blob/main/image.png)
+![1](https://github.com/siva010928/Voice-Prescription/blob/master/img/1.png)
+![2](https://github.com/siva010928/Voice-Prescription/blob/master/img/signup.png)
+![3](https://github.com/siva010928/Voice-Prescription/blob/master/img/login.png)
+![4](https://github.com/siva010928/Voice-Prescription/blob/master/img/Sprachscript _ Dashboard_page-0001.jpg)
+![5](https://github.com/siva010928/Voice-Prescription/blob/master/img/Shiva_47_page-0001.jpg)
+
